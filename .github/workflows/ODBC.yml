@@ -19,11 +19,15 @@ jobs:
   odbc-linux-amd64:
     name: ODBC Linux (amd64)
     runs-on: ubuntu-latest
-    container:
-      image: quay.io/pypa/manylinux2014_x86_64
+    container: quay.io/pypa/manylinux2014_x86_64
     env:
       GEN: ninja
     steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ inputs.git_ref }}
+
       - uses: ./.github/actions/manylinux_2014_setup
         with:
           ninja-build: 1
@@ -32,11 +36,6 @@ jobs:
           aws-cli: 1
           odbc: 1
 
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ inputs.git_ref }}
-          
       - name: Build
         shell: bash
         run: make release
