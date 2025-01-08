@@ -24,7 +24,7 @@ jobs:
     env:
       GEN: ninja
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.git_ref }}
@@ -70,7 +70,7 @@ jobs:
       DUCKDB_PLATFORM: linux_arm64
       ODBC_CONFIG: ../../build/unixodbc/build/bin/odbc_config
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.git_ref }}
@@ -114,7 +114,7 @@ jobs:
     runs-on: windows-latest
     needs: odbc-linux-amd64
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.git_ref }}
@@ -206,7 +206,7 @@ jobs:
       OSX_BUILD_UNIVERSAL: 1
     needs: odbc-linux-amd64
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ inputs.git_ref }}
@@ -260,7 +260,7 @@ jobs:
       GEN: ninja
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
