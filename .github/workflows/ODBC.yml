@@ -23,10 +23,12 @@ jobs:
     env:
       GEN: ninja
       ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
-      ACTIONS_RUNNER_FORCED_INTERNAL_NODE_VERSION: node16
-      ACTIONS_RUNNER_FORCE_ACTIONS_NODE_VERSION: node16
 
     steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
